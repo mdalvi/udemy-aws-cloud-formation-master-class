@@ -5,14 +5,14 @@ instructor-full:
   last-name: Maarek
   awesomeness-level: 9000
 sections-list:
-  - Introduction
+  -  Introduction
   -  Deploying your first function
   -  Learning AWS Lambda in depth
   -  Real world exmaples
 lectures:
   - lecture-id: 1
     lecture-name: intro
-    lecture-length: 5:03
+    lecture-length: '5:03'
   - lecture-id: 2
     lecture-name: aws-lambda
-    lecture-length: 10:47
+    lecture-length: '10:47'

@@ -1,0 +1,37 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  EC2Main:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      SecurityGroupIds:
+        - !Ref SGMain1
+        - !Ref SGMain2
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 355fdb0b-899e-460e-8c58-1eabfc8c8994
+  SGMain2:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 9d4389d0-f3fa-4560-aac2-dccfa28635fd
+  SGMain1:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: ce8a7a03-9d8e-4de5-8abc-af09d2b6ede9
+  EC2IPMain:
+    Type: 'AWS::EC2::EIP'
+    Properties:
+      InstanceId: !Ref EC2Main
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: cbaf8f59-218a-4654-b598-fac260889666
+  EC2EIPA3LR10:
+    Type: 'AWS::EC2::EIPAssociation'
+    Properties:
+      InstanceId: !Ref EC2IPMain
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: f57c0980-e5be-4166-8ca5-8a61f988019f
