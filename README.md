@@ -1,2 +1,2 @@
 # Udemy Course
-Udemy AWS Cloud Formation Master Class
+AWS Cloud Formation Master Class
