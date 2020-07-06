@@ -15,7 +15,7 @@ Resources:
   WebServer:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: ami-a4c7edb2
+      ImageId: ami-09d95fab7fff3776c
       InstanceType: t2.micro
       KeyName: !Ref KeyName
       SecurityGroups:
@@ -23,10 +23,12 @@ Resources:
       UserData:
         Fn::Base64: |
            #!/bin/bash
-           yum update -y
-           yum install -y httpd24 php56 mysql55-server php56-mysqlnd
-           service httpd start
-           chkconfig httpd on
+           sudo yum update -y
+           sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+           sudo yum install -y httpd mariadb-server
+           sudo systemctl start httpd
+           sudo systemctl enable httpd
+           sudo systemctl is-enabled httpd
            groupadd www
            usermod -a -G www ec2-user
            chown -R root:www /var/www

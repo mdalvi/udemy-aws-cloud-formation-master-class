@@ -1,8 +1,10 @@
 #!/bin/bash
-yum update -y
-yum install -y httpd24 php56 mysql55-server php56-mysqlnd
-service httpd start
-chkconfig httpd on
+sudo yum update -y
+sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+sudo yum install -y httpd mariadb-server
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo systemctl is-enabled httpd
 groupadd www
 usermod -a -G www ec2-user
 chown -R root:www /var/www
