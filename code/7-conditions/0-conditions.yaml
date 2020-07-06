@@ -50,10 +50,8 @@ Resources:
     Type: "AWS::EC2::VolumeAttachment"
     Condition: CreateProdResources
     Properties:
-      InstanceId:
-        !Ref EC2Instance
-      VolumeId:
-        !Ref NewVolume
+      InstanceId: !Ref EC2Instance
+      VolumeId: !Ref NewVolume
       Device: /dev/sdh
 
   NewVolume:
@@ -61,11 +59,9 @@ Resources:
     Condition: CreateProdResources
     Properties:
       Size: 100
-      AvailabilityZone:
-        !GetAtt EC2Instance.AvailabilityZone
+      AvailabilityZone: !GetAtt EC2Instance.AvailabilityZone
 
 Outputs:
   VolumeId:
     Condition: CreateProdResources
-    Value:
-      !Ref NewVolume
+    Value: !Ref NewVolume
