@@ -37,7 +37,7 @@ Resources:
   SSHSecurityGroupStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: https://s3.amazonaws.com/cloudformation-bucket-common-mycorp/ssh-security-group.yaml
+      TemplateURL: https://udemy-cloud-formation-master-class-nested-templates.s3.amazonaws.com/ssh-security-group.yaml
       Parameters:
         ApplicationName: !Ref AWS::StackName
         VPCId: !Ref VPCId
@@ -53,4 +53,3 @@ Resources:
       AvailabilityZone: !Sub ${AWS::Region}a
       SecurityGroupIds:
         - !GetAtt SSHSecurityGroupStack.Outputs.SSHGroupId
-
